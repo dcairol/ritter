@@ -1,7 +1,7 @@
-<div id="wrap" style="float:right;">
+<div id="wrap" style="float:left;">
   <ul id="mycarousel" class="jcarousel-skin-tango">
     <% categoria.productos.each do |producto| %>
-      <li><%= image_tag producto.imagen.url(:thumb) %></li>
+      <li><%= link_to image_tag(producto.imagen.url(:thumb)),ver_producto_path(producto.id),:remote => true %></li>
     <% end %>
   </ul>
 </div>
