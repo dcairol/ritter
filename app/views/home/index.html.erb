@@ -1,0 +1,179 @@
+<div id='wrapper'> <!-- wrapper starts -->
+	<header id='headerWrapper'>
+		<div id='header' class='fixed'>
+			<a class='navLink aboutLink' href='#aboutUs'>
+				<span>Flor de Ajedrez</span><!--Sobre m&iacute;-->
+			</a>
+			<a class='navLink ritterLink' href='#products'>
+				<span>Productos</span><!--Ritter Sport-->
+			</a>
+			<a class='navLink eventsLink' href='#events'>
+				<span>Ferias</span><!--Ferias-->
+			</a>
+			<a class='navLink giftLink' href='#corpGift'>
+				<span>Regalos</span><!--Regalos-->
+			</a>
+		</div>
+	</header>
+
+	<div id='mainContainer'> <!-- main container starts -->
+		<div id='containerWrapper'>
+			<section id='aboutUs' class='container'> <!-- about us starts -->
+				<div class='hero'>
+					<hgroup>
+						<h2>Flor de Ajedrez</h2>
+						<h3>Lorem ipsum</h3>
+					</hgroup>
+					<img class='mainPict' src='images/ritter_choc_01.png' alt='Flor de Ajedrez' />
+				</div>
+		<!--		<article>
+					<p>Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id.</p>
+				</article> -->
+				
+				<nav class='main'>
+				</nav>
+			</section> <!-- about us ends -->
+					
+			<section id='products' class='container'> <!-- products starts -->
+				<article style = "margin-top:35px;">
+					
+				  <% unless @categorias.empty? %>
+  			  	    <ul>
+			    	      <% @categorias.each do |categoria| %>
+			      	        <li><%= link_to categoria.nombre, productos_por_categoria_path(categoria.id), :remote => true %></li>
+                                      <% end %>
+		          	    </ul>
+				  <% end %>
+
+				</article>
+				<img class='mainPict' src='images/ritter_choc_02.png' alt='Flor de Ajedrez' />
+				<nav class='main'>
+				</nav>
+				<div id = "productos-por-categoria">
+				  <% unless  @categorias.empty? %>
+				    <%= render :partial => 'productos_por_categoria',:locals => {:categoria => @categorias.first} %>
+				  <% end %>
+				</div>
+			</section> <!-- products ends -->
+			
+			<section id='events' class='container'> <!-- events starts -->
+			<!--	<hgroup>
+					<h2>Ferias</h2>
+					<h3>Lorem ipsum</h3>
+				</hgroup>
+				<article>
+					<p>Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id.</p>
+					<p>Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per.</p>
+				</article> -->
+				<img class='mainPict' src='images/fda_07.png' alt='Flor de Ajedrez' />
+				<nav class='main'>
+				</nav>
+			</section> <!-- events starts -->
+
+			<section id='corpGift' class='container'> <!-- corporative gifts starts -->
+			<!--	<hgroup>
+					<h2>Regalos corporativos</h2>
+					<h3>Lorem ipsum</h3>
+				</hgroup>
+				<article>
+					<p>Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id.</p>
+					<p>Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per.</p>
+				</article> -->
+				<img class='mainPict' src='images/fda_07.png' alt='Flor de Ajedrez' />
+				<nav class='main'>
+				</nav>
+			</section> <!-- corporative gifts ends -->
+		</div>
+	</div> <!-- main container ends -->
+	
+	<aside id='asideWrapper'>
+		<div id='aside'>
+		
+			<div id='buttonsContainer'>
+				<div class='closeAside asideButton'></div>
+				<div class='cartIcon icon'>
+					<span class='toolTip'><strong>Carrito</strong></span>
+					<a href='#cartForm'></a>
+				</div>
+				<div class='searchIcon icon'>
+					<span class='toolTip'><strong>B&uacute;squeda</strong></span>
+					<a href='#searchForm'></a>
+				</div>
+				<div class='suscriptionIcon icon'>
+					<span class='toolTip'><strong>Suscripci&oacute;n</strong></span>
+					<a href='#suscriptionForm'></a>
+				</div>
+				<div class='contactIcon icon'>
+					<span class='toolTip'><strong>Contacto</strong></span>
+					<a href='#contactForm'></a>
+				</div>
+			</div>
+			
+			<div id='formContainer'>
+				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='cartForm'> <!-- cart form starts -->
+					<h5>Llevame <br /><span>con vos</span></h5>
+					<ul id='cartList'>
+						<li><span class='productName'>Producto 1</span><span class='productQty'>3 unid.</span></li>
+						<li class='oddProduct'><span class='productName'>Producto 2</span><span class='productQty'>2 unid.</span></li>
+						<li><span class='productName'>Producto 3</span><span class='productQty'>1 unid.</span></li>
+						<li><span class='cartTotal'>c2.500</span></li>
+					</ul>
+					<div class='field'>
+						<label for='detailInput'>Detalle:</label>
+						<textarea class='text' type='textarea' id='detailInput' name='detailInput'></textarea>
+					</div>
+					<input class='submit' type='submit' id='cartSubmit' name='cartSubmit' value='cotizar' />
+				</form> <!-- cart form ends -->
+			
+				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='searchForm'> <!-- search form starts -->
+					<h5>Tengo lo <br /><span>que busc&aacute;s</span></h5>
+					<div class='field'>
+						<input class='text required' type='text' id='searchInput' name='searchInput' placeholder='Buscar' />
+					</div>
+					<input class='submit' type='submit' id='searchSubmit' name='searchSubmit' value='buscar' />
+				</form> <!-- search form ends -->
+			
+				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='suscriptionForm'> <!-- suscription form starts -->
+					<h5>Quiero estar en <br /><span>contacto con vos</span></h5>
+					<div class='field'>
+						<input class='text required' type='text' id='suscriptionInput' name='suscriptionInput' placeholder='correo@ejemplo.com' />
+					</div>
+					<input class='submit' type='submit' id='suscriptionSubmit' name='suscriptionSubmit' value='suscribir' />
+				</form> <!-- suscription form ends -->
+			
+				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='contactForm'> <!-- contact form starts -->
+					<h5>Dejate enamorar <br /><span>y escribime</span></h5>
+					<div class='field'>
+						<label for='nameInput'>Nombre:</label>
+						<input class='text required' type='text' id='nameInput' name='nameInput' placeholder='Nombre' />
+					</div>
+					<div class='field'>
+						<label for='mailInput'>Correo electr&oacute;nico:</label>
+						<input class='text required' type='text' id='mailInput' name='mailInput' placeholder='correo@ejemplo.com' />
+					</div>
+					<div class='field'>
+						<label for='subjectInput'>Asunto:</label>
+						<input class='text required' type='text' id='subjectInput' name='subjectInput' placeholder='Asunto' />
+					</div>
+					<div class='field'>
+						<label for='descInput'>Descripci&oacute;n:</label>
+						<textarea class='text required' type='textarea' id='descInput' name='descInput' ></textarea>
+					</div>
+					<input class='submit' type='submit' id='contactSubmit' name='contactSubmit' value='enviar' />
+				</form> <!-- contact form ends -->
+			</div>
+		</div>
+	</aside>
+
+	<footer id='footerWrapper'>
+		<div id='footerContainer'>
+			<ul>
+				<li><a class='aboutLink' href='#aboutUs'>Sobre m&iacute;</a></li>
+				<li><a class='ritterLink' href='#ritterProducts'>Ritter Sport</a></li>
+				<li><a class='eventsLink' href='#events'>Ferias</a></li>
+				<li><a class='giftLink' href='#corpGift'>Regalos</a></li>
+				<li><a class='otherProductsLink' href='#otherProducts'>Ritter Sport</a></li>
+			</ul>
+		</div>
+	</footer>	
+</div> <!-- wrapper ends -->

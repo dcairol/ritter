@@ -1,0 +1,17 @@
+<div id = 'form'>
+	<%= form_for @categoria, :url => @categoria.new_record? ? admin_categorias_path : admin_categoria_path, :remote => true do |f| %>
+		<%= f.label :nombre %>
+		<%= f.text_field :nombre %><br />
+		<%= f.label :activa %>
+		<%= f.check_box :activa %>
+		<%= f.submit 'Guardar' %>
+		<%= link_to 'Cancelar', :cancel_categoria, :remote => true %>
+	<% end %>
+	<% if @categoria.errors.any? %>
+		<ul>
+			<% @categoria.errors.full_messages.each do |error| %>
+				<li><%= error %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>

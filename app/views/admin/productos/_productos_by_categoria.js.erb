@@ -1,0 +1,1 @@
+$('#productos-<%= @categoria.id %>').html("<%= escape_javascript (render :partial => 'productos',:locals => {:productos => @productos})%>")

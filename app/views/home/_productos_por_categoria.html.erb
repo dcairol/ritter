@@ -1,0 +1,15 @@
+<div id="wrap" style="float:right;">
+  <ul id="mycarousel" class="jcarousel-skin-tango">
+    <% categoria.productos.each do |producto| %>
+      <li><%= image_tag producto.imagen.url(:thumb) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel();
+});
+
+</script>

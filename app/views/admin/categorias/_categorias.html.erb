@@ -1,0 +1,24 @@
+<div class="mensaje" style = "padding-bottom:20px;">
+<%= flash[:notice] if flash[:notice] %>
+</div>
+
+<% if categorias.empty? %>
+	No hay categor&iacute;as de productos definidas.
+<% else %>
+
+	<% categorias.each do |categoria| %>
+
+		<div id = "categoria-<%= categoria.id %>">
+			<%= categoria.nombre %>
+			<%= link_to "Editar", edit_admin_categoria_path(categoria),:remote => true %></td>
+			<%= link_to "Borrar", admin_categoria_path(categoria),:remote => true, :method => :delete, :confirm => '¿Esta seguro de que quiere borrar esta categoría?' %>
+		<%= link_to "Ver Productos", admin_categoria_productos_path(categoria),:remote => true %>
+		<%= link_to "Agregar Producto", new_admin_categoria_producto_path(categoria) %>
+		<div id='productos-<%= categoria.id %>'>
+		</div>
+	<% end %>
+<% end %>
+<div id = "new-categoria">
+</div>
+<br />
+<%= link_to "Nueva Categoría", new_admin_categoria_path, :remote => true %>

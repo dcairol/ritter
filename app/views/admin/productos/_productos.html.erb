@@ -1,0 +1,54 @@
+<div id = "inner-productos-<%= @categoria.id %>" style = "padding: 20px 0px 20px 0px">
+<script type ="text/javascript">
+	$(document).ready(function(){
+		$("area[rel^='prettyPhoto']").prettyPhoto();
+	
+		$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({theme:'light_square'});
+		$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+
+		$("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
+			custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
+			changepicturecallback: function(){ initialize(); }
+		});
+		$(".btn-cerrar").click(function(){
+			$("#inner-productos-"+this.id).hide();
+		});
+	});
+</script>
+
+<% if productos.empty? %>
+No hay productos bajo esta categor&iacute;a
+<a href = "javascript:void(0);" id = "<%= @categoria.id %>" class="btn-cerrar">Cerrar</a>
+<% else %>
+<table>
+	<tr style="background-color:blue;color:white;">
+		<td>Nombre</td>
+		<td>Descripcion</td>
+		<td>Activo</td>
+		<td>Imagen</td>
+		<td>Editar</td>
+		<td>Borrar</td>
+	</tr>
+<% productos.each do |producto| %>
+	<tr>
+		<td><%= producto.nombre %></td>
+		<td><%= producto.descripcion %></td>
+		<td><%= producto.activo? %></td>
+		<td class = "gallery">
+		<% if producto.imagen.exists? %>
+			<a href = <%= producto.imagen.url %> rel='prettyPhoto[iframes]' title="<%= producto.descripcion %>">Ver</a>
+		<% else %>
+			-		
+		<% end %>
+		</td>
+		<td><%= link_to 'Editar', edit_admin_categoria_producto_url(:categoria_id => producto.categoria,:id => producto) %></td>
+		<td><%= link_to 'Borrar', delete_producto_url(producto), :remote => true, :confirm => 'Esta seguro de que desea borrar este producto?' %></td>
+	</tr>
+<% end %>
+	<tr>
+		<td colspan='6' style="text-align:center;"><a href = "javascript:void(0);" id = "<%= @categoria.id %>" class="btn-cerrar">Cerrar</a></td>
+	</tr>
+</table>
+<% end %>
+
+</div>

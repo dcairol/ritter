@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ritter</title>
+  <%= stylesheet_link_tag  params[:controller] %>
+  <%= javascript_include_tag "jquery","jquery_ujs",params[:controller] %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if admin_signed_in? %>
+<div style = "float:right;padding-right:50px;"><%= link_to 'Salir', destroy_admin_session_path, :method => :delete %></div>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<% if admin_signed_in? %>
+<div style = "float:right;padding-right:50px;"><%= link_to 'Salir', destroy_admin_session_path, :method => :delete %></div>
+<% end %>
+
+<table>
+<%= form_for @producto, :url => @producto.new_record? ? admin_categoria_productos_path(@categoria) : admin_categoria_producto_path(:categoria_id => @categoria.id, :id => @producto.id), :html => {:multipart => true} do |f| %>
+	<tr>
+		<td><%= f.label :nombre %></td>
+		<td><%= f.text_field :nombre %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :descripcion %></td>
+		<td><%= f.text_area :descripcion, :rows => 4 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :activo %></td>
+		<td><%= f.check_box :activo %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :imagen %></td>
+		<td><%= f.file_field :imagen %></td>
+	</td>
+	<tr>
+		<td><%= f.label :categoria %></td>
+		<td><%= select 'producto','categoria_id',Categoria.all.collect{|c| [c.nombre,c.id]} %></td>
+	</tr>
+	<tr>
+		<td><%= f.submit 'Guardar' %></td>
+		<td><%= link_to 'Cancelar', admin_categorias_path %></td>
+	</td>
+<% end %>
+</table>

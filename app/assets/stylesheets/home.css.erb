@@ -1,0 +1,682 @@
+/*
+Flor de Ajedrez Theme 1.0
+Back-end: Daniel Cairol - dcairol@gmail.com
+Front-end: Norman Ramírez - nramirezcr@gmail.com
+2012
+
+-------------
+GLOBAL COLORS
+-------------
+
+- Nav & Article Headers -
+
+Sobre mí:
+	- #000391 / Primary Blue
+
+Ritter Sport:
+	- #007bac / Primary Light Blue
+
+Ferias:
+	- #ff6300 / Primary Orange
+
+Regalos:
+	- #d2a432 / Primary Light Orange
+
+Otros productos:
+	- #f8be31 / Primary Green
+
+
+- Aside Forms -
+
+Cart Form:
+	- #1b9ded / Primary Blue
+	- #8ba3b2 / Secundary Blue
+	- #ddf0fc / Tertiary Blue
+
+Search Form:
+	- #ba528b / Primary Magenta
+	- #8b7883 / Secundary Magenta
+	- #f5e5ee / Tertiary Magenta
+
+Suscription Form:
+	- #ff3600 / Primary Red
+	- #bf9a90 / Secundary Red
+	- #ffe1d9 / Tertiary Red
+
+Contact Form:
+	- #0bd805 / Primary Green
+	- #7ca27b / Secundary Green
+	- #dbf9da / Tertiary Green
+*/
+
+/* The Eurofurence Typeface Tamily by Tobias B. Koehler (unci@tigerden.com) */
+
+/* Light */
+@font-face {
+	font-family: Eurofurence;
+	src: url('../fonts/eurof35.ttf');
+	font-style: normal;
+	font-weight: 300;
+}
+@font-face {
+	font-family: Eurofurence;
+	src: url('../fonts/eurof36.ttf');
+	font-style: italic;
+	font-weight: 300;
+}
+
+/* Normal */
+@font-face {
+	font-family: Eurofurence;
+	src: url('../fonts/eurof55.ttf');
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: Eurofurence;
+	src: url('../fonts/eurof56.ttf');
+	font-style: italic;
+	font-weight: normal;
+}
+
+/* Bold */
+@font-face {
+	font-family: Eurofurence;
+	src: url('../fonts/eurof75.ttf');
+	font-style: normal;
+	font-weight: bold;
+}
+@font-face {
+	font-family: Eurofurence;
+	src: url('../fonts/eurof76.ttf');
+	font-style: italic;
+	font-weight: bold;
+}
+
+/* CSS Reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+:focus {
+	outline: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+	zoom: 1;
+}
+
+body {
+	font-family: Eurofurence, 'Avant Garde', 'Century Gothic', Helvetica, Arial, sans-serif;
+	line-height: 1;
+	font-size: 16px;
+	overflow-x: hidden;
+	cursor: default;
+/*	background: #422607 url(<%= asset_path 'choco_bg.jpg' %>) top center fixed; */
+}
+
+::-moz-selection {
+	background-color: transparent !important;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+button, input[type="reset"], input[type="button"], input[type="submit"] {
+	line-height:normal !important;
+}
+
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+
+/* -----------GLOBAL STYLES----------- */
+
+/* Header */
+
+.fixed {
+	position: fixed !important;
+	top: 0 !important;
+}
+
+#wrapper {
+	width:90%;
+	max-width: 60em;
+	min-width: 45em;
+	height: auto;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+
+#headerWrapper { /* required to avoid jumping */
+	position: absolute;
+	width: 20em;
+	z-index: 8;
+	margin-left: 1em;
+}
+
+	#header {
+		position: fixed;
+		top: 0;
+		margin-top: 0.5em;
+	}
+	
+	#header a {
+		color: #fff;
+		text-transform: uppercase;
+	}
+
+.navLink {
+	display: block;
+	width: 5.5em;
+	height: 5.5em;
+	padding: 0.25em;
+	border: 1px solid #ccc;
+	margin: 0 0.5em 0.5em 0;
+	float: left;
+	text-align: center;
+	background: #fff;
+}
+
+	.navLink span {
+		display: block;
+		height: 100%;
+		font-size: 0.825em;
+		font-weight: bold;
+		letter-spacing: 0.125em;
+	}
+	
+	/* Links color */
+	.aboutLink span {
+		background-color: #000391;
+	}
+	.ritterLink span {
+		background-color: #007bac;
+		background-position: 0 left;
+	}
+	.eventsLink span {
+		background-color: #ff6300;
+	}
+	.giftLink span {
+		background-color: #d2a432;
+	}
+
+.giftLink, .ritterLink {
+	margin-right: 0 !important;
+}
+.otherProductsLink {
+	margin-right: 0 !important;
+	clear: left;
+}
+.eventsLink {
+	clear: left;
+}
+
+/* Aside forms */
+	
+#asideWrapper { /* required to avoid jumping */
+	position: absolute;
+	width: 1.5em;
+	z-index: 10;
+	right: 0;
+	top: 0;
+	height: 100%;
+	margin-right: 1em;
+}
+
+	#aside {
+		position: fixed;
+		top: 0;
+		margin-top: 0.5em;
+		width: 15em;
+	}
+
+#buttonsContainer {
+	width: 1.5em;
+	display: block;
+	float: left;
+}
+
+#buttonsContainer div {
+	margin-bottom: 0.5em;
+	position: relative;
+}
+
+.icon a {
+	width: 1.5em;
+	height: 1.5em;
+	display: block;
+	background-image: url(<%= asset_path 'aside_icons.png' %>);
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+
+	/* Icon Images */
+	.cartIcon a {
+		background-position: -0.5em -2.5em;
+	}
+	.cartIcon.active a, .cartIcon a:hover {
+		background-position: -2.5em -2.5em;
+	}
+	.searchIcon a {
+		background-position: -0.5em -4.5em;
+	}
+	.searchIcon.active a, .searchIcon a:hover {
+		background-position: -2.5em -4.5em;
+	}
+	.suscriptionIcon a {
+		background-position: -0.5em -6.5em;
+	}
+	.suscriptionIcon.active a, .suscriptionIcon a:hover {
+		background-position: -2.5em -6.5em;
+	}
+	.contactIcon a {
+		background-position: -0.5em -8.5em;
+	}
+	.contactIcon.active a, .contactIcon a:hover {
+		background-position: -2.5em -8.5em;
+	}
+
+.asideButton {
+	cursor: pointer;
+	margin-bottom: 0.5em;
+	width: 1.5em;
+	height: 1.5em;
+	background-image: url(<%= asset_path 'aside_icons.png' %>);
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+
+	.closeAside {
+		display: none;
+		background-position: -0.5em -0.5em;
+	}
+	.closeAside:hover {
+		background-position: -2.5em -0.5em;
+	}
+		
+	.downButton {
+		display: block;
+		background-position: -0.5em -12.5em;
+	}
+	.downButton:hover {
+		display: block;
+		background-position: -2.5em -12.5em;
+	}
+
+form {
+	overflow: hidden;
+}
+
+.asideObject {
+	display: none;
+	padding: 0.5em;
+	background: #fff;
+	border-radius: 0.25em;
+}
+	
+#formContainer {
+	display: block;
+	position: relative;
+	width: 12em;
+	float: right;
+}
+	
+.toolTip {
+	color: #fff;
+	position:absolute;
+	top: 4px;
+	right: 30px;
+	height: 18px;
+	text-align: right;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 0 8px;
+	font-size: 14px;
+	display: none;
+}
+
+.toolTip strong {
+	display: block;
+	height: 14px;
+	padding: 2px;
+}
+
+.cartIcon .toolTip {
+	background: url(<%= asset_path 'toolTip_left.png' %>) no-repeat left 0,
+				url(<%= asset_path 'toolTip_right.png' %>) no-repeat right 0;
+}
+.cartIcon .toolTip strong,
+#cartForm .submit:hover {
+	background: #1b9ded;
+}
+#cartForm .submit {
+	background: #8ba3b2;
+}
+#cartForm h5 {
+	color: #8ba3b2;
+}
+#cartForm h5 span {
+	color: #1b9ded;
+}
+
+.searchIcon .toolTip {
+	background: url(<%= asset_path 'toolTip_left.png' %>) no-repeat left -26px,
+				url(<%= asset_path 'toolTip_right.png' %>) no-repeat right -26px;
+}
+.searchIcon .toolTip strong,
+#searchForm .submit:hover {
+	background: #ba528b;
+}
+#searchForm .submit {
+	background: #8b7883;
+}
+#searchForm h5 {
+	color: #8b7883;
+}
+#searchForm h5 span {
+	color: #ba528b;
+}
+
+.suscriptionIcon .toolTip {
+	background: url(<%= asset_path 'toolTip_left.png' %>) no-repeat left -52px,
+				url(<%= asset_path 'toolTip_right.png' %>) no-repeat right -52px;
+}
+.suscriptionIcon .toolTip strong,
+#suscriptionForm .submit:hover {
+	background: #ff3600;
+}
+#suscriptionForm .submit {
+	background: #bf9a90;
+}
+#suscriptionForm h5 {
+	color: #bf9a90;
+}
+#suscriptionForm h5 span {
+	color: #ff3600;
+}
+
+.contactIcon .toolTip {
+	background: url(<%= asset_path 'toolTip_left.png' %>) no-repeat left -78px,
+				url(<%= asset_path 'toolTip_right.png' %>) no-repeat right -78px;
+}
+.contactIcon .toolTip strong,
+#contactForm .submit:hover {
+	background: #0bd805;
+}
+#contactForm .submit {
+	background: #7ca27b;
+}
+#contactForm h5 {
+	color: #7ca27b;
+}
+#contactForm h5 span {
+	color: #0bd805;
+}
+
+form label {
+	display: block;
+	clear: both;
+}
+
+.field {
+	clear: both;
+	display: block;
+	margin-bottom: 0.5em;
+}
+
+form input, form textarea {
+	display: block;
+	padding: 0;
+	margin: 0;
+	border: 0 none;
+	font-family: Eurofurence, 'Avant Garde', 'Century Gothic', Helvetica, Arial, sans-serif;
+	font-size: 1em;
+}
+
+form .text {
+	clear: both;
+	height: 20px;
+	border: 1px dashed #ccc;
+	width: 10.875em;
+}
+
+	form .text:focus {
+		background-image: url(<%= asset_path 'input_bg.png' %>);
+	}
+	
+	#cartForm .text:focus {
+		background-color: #ddf0fc;
+	}
+	#searchForm .text:focus {
+		background-color: #f5e5ee;
+	}
+	#suscriptionForm .text:focus {
+		background-color: #ffe1d9;
+	}
+	#contactForm .text:focus {
+		background-color: #dbf9da;
+	}
+	
+form .submit {
+	clear: both;
+	height: 22px;
+	text-transform: uppercase;
+	width: 100%;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 0.125em;
+	border: 1px solid #999;
+	cursor: pointer;
+}
+
+form h5 {
+	display: block;
+	float: left;
+	font-size: 1.25em;
+	margin-bottom: 0.5em;
+}
+
+	form h5 span {
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+form textarea {
+	height: 5em;
+	min-height: 5em;
+	max-height: 15em;
+	width: 10.875em;
+	min-width: 10.875em;
+	max-width: 10.875em;
+}
+
+form .uncorrect {
+	background-color: #fcedd3;
+	background-image: url(<%= asset_path 'input_bg.png' %>);
+}
+
+#cartList li {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	padding: 0.125em 0.5em;
+}
+
+	li.oddProduct {
+		background: #ddd;
+	}
+
+li .productName {
+	float: left;
+	clear: left;
+}
+
+li .productQty {
+	float: right;
+	clear: right;
+}
+
+li .cartTotal {
+	float: right;
+	clear: both;
+}
+
+/* Container */
+
+#mainContainer {
+	display: block;
+	height: 100%;
+	width: auto;
+	clear: both;
+	position: relative;
+}
+
+#containerWrapper {
+	padding: 0 0.5em;
+	background: url(<%= asset_path 'wrapperlb_bg.png' %>) bottom left repeat-y,
+				url(<%= asset_path 'wrapperrb_bg.png' %>) bottom right repeat-y;
+}
+
+.container {
+	min-height: 60em;
+	position: relative;
+	padding: 3.325em 2.5em 0 1em;
+	background: #fff url(<%= asset_path 'wrapper_bg.png' %>);
+}
+
+	.hero {
+		position: relative;
+		height: 100%;
+		display: block;
+	}
+
+	.mainPict {
+		float: right;
+		width: 75%;
+		opacity: 0;
+		margin-right: -10em;
+	}
+
+	.container hgroup {
+		width: 25%;
+		margin-bottom: 4em;
+		text-align: left;
+		position: absolute;
+		right: 0;
+		bottom: 2em;
+	}
+	
+		.container hgroup h2 {
+			font-size: 2em;
+			line-height: 0.65em;
+			min-height: 0.65em;
+		}
+		
+		.container hgroup h3 {
+			font-size: 1.5em;
+			line-height: 0.65em;
+			min-height: 0.65em;
+			margin-top: 0.5em;
+			color: #333;
+		}
+		
+	.container article {
+		float: left;
+		clear: left;
+		width: 25%;
+		margin-top: 5em;
+	}
+		
+		.container article p {
+			text-align: left;
+			color: #555;
+			margin-bottom: 0.625em;
+		}
+		
+	#aboutUs h2,
+	#aboutUs h3	{
+		color: #000391;
+	}
+	
+	#ritterProducts h2,
+	#ritterProducts h3  {
+		color: #007bac;
+	}
+	#events h2,
+	#events h3 {
+		color: #ff6300;
+	}
+	#corpGift h2,
+	#corpGift h3 {
+		color: #d2a432;
+	}
+	#otherProducts h2,
+	#otherProducts h3 {
+		color: #f8be31;
+	}
+	
+/* Footer */
+
+#footerWrapper {
+	padding: 0 0.5em;
+	background: url(<%= asset_path 'footerl_bg.png' %>) top left repeat-y,
+				url(<%= asset_path 'footerr_bg.png' %>) top right repeat-y;
+}
+
+#footerContainer {
+	display: block;
+	background: url(<%= asset_path 'footer_bg.png' %>);
+	padding: 0 1em 1em;
+}
+
+#footerContainer a {
+	color: #fff;
+}
