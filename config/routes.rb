@@ -17,4 +17,5 @@ Ritter::Application.routes.draw do
   match 'categorias/cancelar' => 'admin/categorias#cancel', :as => :cancel_categoria
   match 'productos/:id/delete' => 'admin/productos#destroy', :as => :delete_producto
   match 'categorias/:id/productos' => 'home#productos_por_categoria', :as => 'productos_por_categoria'
+  match 'products/:id' => 'home#ver_producto', :as => 'ver_producto'
 end

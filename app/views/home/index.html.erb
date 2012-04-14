@@ -35,7 +35,7 @@
 			</section> <!-- about us ends -->
 					
 			<section id='products' class='container'> <!-- products starts -->
-				<article style = "margin-top:35px;">
+				<article style = "margin-top:175px;">
 					
 				  <% unless @categorias.empty? %>
   			  	    <ul>
@@ -49,10 +49,12 @@
 				<img class='mainPict' src='images/ritter_choc_02.png' alt='Flor de Ajedrez' />
 				<nav class='main'>
 				</nav>
-				<div id = "productos-por-categoria">
+				<div id = "productos-por-categoria" style = "clear:both;">
 				  <% unless  @categorias.empty? %>
 				    <%= render :partial => 'productos_por_categoria',:locals => {:categoria => @categorias.first} %>
 				  <% end %>
+				</div>
+				<div id = "producto-actual" style = "clear:both;">
 				</div>
 			</section> <!-- products ends -->
 			

@@ -10,4 +10,11 @@ class HomeController < ApplicationController
       format.js
     end
   end
+
+  def ver_producto
+    @producto = Producto.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
 end
