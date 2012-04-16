@@ -18,8 +18,14 @@ test:
   username: root
   password: chiqui2009
 
+#production:
+#  adapter: sqlite3
+#  database: db/production.sqlite3
+#  pool: 5
+#  timeout: 5000
+
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql
+  database: ritter_prod
+  username: root
+  password: chiqui2009
