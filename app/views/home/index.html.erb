@@ -110,38 +110,16 @@
 					<a href='#contactForm'></a>
 				</div>
 			</div>
-			
 			<div id='formContainer'>
-				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='cartForm'> <!-- cart form starts -->
-					<h5>Llevame <br /><span>con vos</span></h5>
-					<ul id='cartList'>
-						<li><span class='productName'>Producto 1</span><span class='productQty'>3 unid.</span></li>
-						<li class='oddProduct'><span class='productName'>Producto 2</span><span class='productQty'>2 unid.</span></li>
-						<li><span class='productName'>Producto 3</span><span class='productQty'>1 unid.</span></li>
-						<li><span class='cartTotal'>c2.500</span></li>
-					</ul>
-					<div class='field'>
-						<label for='detailInput'>Detalle:</label>
-						<textarea class='text' type='textarea' id='detailInput' name='detailInput'></textarea>
-					</div>
-					<input class='submit' type='submit' id='cartSubmit' name='cartSubmit' value='cotizar' />
-				</form> <!-- cart form ends -->
-			
-				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='searchForm'> <!-- search form starts -->
-					<h5>Tengo lo <br /><span>que busc&aacute;s</span></h5>
-					<div class='field'>
-						<input class='text required' type='text' id='searchInput' name='searchInput' placeholder='Buscar' />
-					</div>
-					<input class='submit' type='submit' id='searchSubmit' name='searchSubmit' value='buscar' />
-				</form> <!-- search form ends -->
-			
-				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='suscriptionForm'> <!-- suscription form starts -->
+				<div class='asideObject' id='suscriptionForm'> <!-- suscription form starts -->
+					<%= form_tag '/subscription', :remote => true do -%>
 					<h5>Quiero estar en <br /><span>contacto con vos</span></h5>
 					<div class='field'>
-						<input class='text required' type='text' id='suscriptionInput' name='suscriptionInput' placeholder='correo@ejemplo.com' />
+						<%= text_field_tag 'email', nil,:placeholder => 'correo@ejemplo.com', :class => 'text required' %>
 					</div>
-					<input class='submit' type='submit' id='suscriptionSubmit' name='suscriptionSubmit' value='suscribir' />
-				</form> <!-- suscription form ends -->
+					<%= submit_tag 'Suscribir',:class => 'submit' %>
+					<% end -%>
+				</div> <!-- suscription form ends -->
 			
 				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='contactForm'> <!-- contact form starts -->
 					<h5>Dejate enamorar <br /><span>y escribime</span></h5>

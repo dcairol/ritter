@@ -185,7 +185,6 @@ jQuery(function($){
 						$(this).removeClass('uncorrect');
 					}
 				});
-				return false;
 			});
 		});
 	}
