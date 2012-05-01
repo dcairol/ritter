@@ -1,105 +1,165 @@
 <div id='wrapper'> <!-- wrapper starts -->
-	<header id='headerWrapper'>
+	<div id='headerWrapper'>
 		<div id='header' class='fixed'>
-			<a class='navLink aboutLink' href='#aboutUs'>
-				<span>Flor de Ajedrez</span><!--Sobre m&iacute;-->
+			<a class='boxShadow navLink aboutLink' href='#aboutUs'>
+				<span>
+					<%= image_tag 'nav_icons_aboutUs.png',:alt => 'Acerca de m&iacute;',:title => 'Acerca de m&iacute;' %>
+				</span><!--section: Sobre m&iacute;-->
 			</a>
-			<a class='navLink ritterLink' href='#products'>
-				<span>Productos</span><!--Ritter Sport-->
+			<a class='boxShadow navLink ritterLink' href='#products'>
+				<span>
+					<%= image_tag 'nav_icons_products.png',:alt => 'Mis productos',:title => 'Mis productos' %>
+				</span><!--section: Productos-->
 			</a>
-			<a class='navLink eventsLink' href='#events'>
-				<span>Ferias</span><!--Ferias-->
+			<a class='boxShadow navLink eventsLink' href='#events'>
+				<span>
+					<%= image_tag 'nav_icons_events.png',:alt => 'Ferias',:title => 'Ferias' %>
+				</span><!--section: Ferias-->
 			</a>
-			<a class='navLink giftLink' href='#corpGift'>
-				<span>Regalos</span><!--Regalos-->
+			<a class='boxShadow navLink giftLink' href='#corpGift'>
+				<span>
+					<%= image_tag 'nav_icons_corpGift.png',:alt => 'Regalos Corporativos',:title => 'Regalos Corporativos' %>
+				</span><!--section: Regalos-->
 			</a>
 		</div>
-	</header>
+	</div>
 
 	<div id='mainContainer'> <!-- main container starts -->
 		<div id='containerWrapper'>
-			<section id='aboutUs' class='container'> <!-- about us starts -->
-				<div class='hero'>
-					<hgroup>
-						<h2>Flor de Ajedrez</h2>
-						<h3>Lorem ipsum</h3>
-					</hgroup>
-					<img class='mainPict' src='images/ritter_choc_01.png' alt='Flor de Ajedrez' />
-				</div>
-		<!--		<article>
-					<p>Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id.</p>
-				</article> -->
+			<div id="sectionsContainer">
+				<div id='aboutUs' class='container'> <!-- about us starts -->
+					<div class='sectionDesc'>
+						<div class='descContainer'>
+							<h4>Bienvenidos</h4>
+							<p>Mmmm...¡chocolates! De yogurt, con nueces, crema de avellanas o un poquito de nutella. Flor de Ajedrez te trae el cat&aacute;logo m&aacute;s tentador del a&ntilde;o. ¡Tan solo d&eacute;jate seducir!</p>
+						</div>
+					</div>
+					<div class='heroContainer'>
+						<div class='hero boxShadow'>
+							<div class='sectionHeader'>
+								<div class='headersContainer'>
+									<h2></h2>
+								</div>
+							</div>
+							<div class="heroImg">
+							</div>
+						</div>
+					</div>
+				</div> <!-- about us ends -->
 				
-				<nav class='main'>
-				</nav>
-			</section> <!-- about us ends -->
-					
-			<section id='products' class='container'> <!-- products starts -->
-				<article style = "margin-top:175px;">
-					
-				  <% unless @categorias.empty? %>
-  			  	    <ul>
-			    	      <% @categorias.each do |categoria| %>
-			      	        <li><%= link_to categoria.nombre, productos_por_categoria_path(categoria.id), :remote => true %></li>
-                                      <% end %>
-		          	    </ul>
-				  <% end %>
+				<div id='products' class='container'> <!-- products starts -->
+					<div class='sectionDesc'>
+						<div class='descContainer'>
+							<h4>Irresistibles</h4>
+							<p>Sencillamente, la octava maravilla. Distribuimos chocolates Ritter en distintos tama&ntilde;os, sabores y formatos, y otras marcas de renombre como Rossini. <br /><br />
+							</p>
+							
+				  		<% unless @categorias.empty? %>
+  			  	    		  <ul style="float:right;padding-right:20px;">
+			    	      		    <% @categorias.each do |categoria| %>
+			      	        	      <li><%= link_to categoria.nombre, productos_por_categoria_path(categoria.id), :remote => true,:style=>"text-decoration:none;" %></li>
+                                      		    <% end %>
+		          	    		  </ul>
+				  		<% end %>
+						</div>
+					</div>
+					<div class='heroContainer'>
+						<div class='hero boxShadow'>
+							<div class='sectionHeader'>
+								<div class='headersContainer'>
+									<h2></h2>
+								</div>
+							</div>
+							<div class="heroImg">
+								<div id="gallery-products" class="imgGallery">
+									<h5 class='thumbTitle'>Cat&aacute;logo de productos</h5>
+									<!-- Gallery goes here -->
+									<ul class='gallery'>
+										<!-- thumbs goes here
+										<li class='imageThumb'>
+											<a href='#' rel='prettyPhoto[gallery2]' title='You can add caption to pictures 1.'><img src='images/nougat.jpg' width='75' height='75' alt='Red round shape' /></a>
+										</li>
+										-->
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- products ends -->
+				
+				<div id='events' class='container'> <!-- events starts -->
+					<div class='sectionDesc'>
+						<div class='descContainer'>
+							<h4></h4>
+							<p></p>
+						</div>
+					</div>
+					<div class='heroContainer'>
+						<div class='hero boxShadow'>
+							<div class='sectionHeader'>
+								<div class='headersContainer'>
+									<h2></h2>
+								</div>
+							</div>
+							<div class="heroImg">
+								<div id="gallery-events" class="imgGallery">
+									<h5 class='thumbTitle'>Galer&iacute;a de eventos</h5>
+									<!-- Gallery goes here -->
+									<ul class='gallery'>
+										<!-- thumbs goes here
+										<li class='imageThumb'>
+											<a href='#' rel='prettyPhoto[gallery2]' title='You can add caption to pictures 1.'><img src='images/nougat.jpg' width='75' height='75' alt='Red round shape' /></a>
+										</li>
+										-->
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- events starts -->
 
-				</article>
-				<img class='mainPict' src='images/ritter_choc_02.png' alt='Flor de Ajedrez' />
-				<nav class='main'>
-				</nav>
-				<div id = "productos-por-categoria" style = "clear:both;">
-				  <% unless  @categorias.empty? %>
-				    <%= render :partial => 'productos_por_categoria',:locals => {:categoria => @categorias.first} %>
-				  <% end %>
-				</div>
-				<div id = "producto-actual" style = "clear:both;">
-				</div>
-			</section> <!-- products ends -->
-			
-			<section id='events' class='container'> <!-- events starts -->
-			<!--	<hgroup>
-					<h2>Ferias</h2>
-					<h3>Lorem ipsum</h3>
-				</hgroup>
-				<article>
-					<p>Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id.</p>
-					<p>Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per.</p>
-				</article> -->
-				<img class='mainPict' src='images/fda_07.png' alt='Flor de Ajedrez' />
-				<nav class='main'>
-				</nav>
-			</section> <!-- events starts -->
-
-			<section id='corpGift' class='container'> <!-- corporative gifts starts -->
-			<!--	<hgroup>
-					<h2>Regalos corporativos</h2>
-					<h3>Lorem ipsum</h3>
-				</hgroup>
-				<article>
-					<p>Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id.</p>
-					<p>Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per.</p>
-				</article> -->
-				<img class='mainPict' src='images/fda_07.png' alt='Flor de Ajedrez' />
-				<nav class='main'>
-				</nav>
-			</section> <!-- corporative gifts ends -->
+				<div id='corpGift' class='container'> <!-- corporative gifts starts -->
+					<div class='sectionDesc'>
+						<div class='descContainer'>
+							<h4></h4>
+							<p></p>
+						</div>
+					</div>
+					<div class='heroContainer'>
+						<div class='hero boxShadow'>
+							<div class='sectionHeader'>
+								<div class='headersContainer'>
+									<h2></h2>
+								</div>
+							</div>
+							<div class="heroImg">
+								<div id="gallery-corpGift" class="imgGallery">
+									<h5 class='thumbTitle'>Cat&aacute;logo de regalos</h5>
+									<!-- Gallery goes here -->
+									<ul class='gallery'>
+										<!-- thumbs goes here
+										<li class='imageThumb'>
+											<a href='#' rel='prettyPhoto[gallery2]' title='You can add caption to pictures 1.'><img src='images/nougat.jpg' width='75' height='75' alt='Red round shape' /></a>
+										</li>
+										-->
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- corporative gifts ends -->
+			</div>
 		</div>
 	</div> <!-- main container ends -->
 	
-	<aside id='asideWrapper'>
+	<div id='asideWrapper'>
 		<div id='aside'>
 		
 			<div id='buttonsContainer'>
 				<div class='closeAside asideButton'></div>
 				<div class='cartIcon icon'>
-					<span class='toolTip'><strong>Carrito</strong></span>
-					<a href='#cartForm'></a>
-				</div>
-				<div class='searchIcon icon'>
-					<span class='toolTip'><strong>B&uacute;squeda</strong></span>
-					<a href='#searchForm'></a>
+					<span class='toolTip'><strong>Perfil</strong></span>
+					<a href='#snBox'></a>
 				</div>
 				<div class='suscriptionIcon icon'>
 					<span class='toolTip'><strong>Suscripci&oacute;n</strong></span>
@@ -110,50 +170,75 @@
 					<a href='#contactForm'></a>
 				</div>
 			</div>
+			
 			<div id='formContainer'>
-				<div class='asideObject' id='suscriptionForm'> <!-- suscription form starts -->
-					<%= form_tag '/subscription', :remote => true do -%>
+				<div class='asideObject' id='snBox'> <!-- cart form starts -->
+					<h5>Encontrame <br /><span>en las redes sociales</span></h5>
+					<div id="facebookLikeBox">
+						<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FChocolates-El-placer-del-cacao-y-Flor-de-Ajedrez%2F176497239033452&amp;width=176&amp;height=440&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%231B9DED&amp;stream=false&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:176px; height:440px;" allowTransparency="true"></iframe>
+					</div>
+				</div> <!-- cart form ends -->
+
+				<!-- suscription form starts -->
+					<%= form_tag '/subscription', :remote => true, :class=> 'asideObject',:id => 'suscriptionForm' do -%>
 					<h5>Quiero estar en <br /><span>contacto con vos</span></h5>
 					<div class='field'>
 						<%= text_field_tag 'email', nil,:placeholder => 'correo@ejemplo.com', :class => 'text required' %>
 					</div>
 					<%= submit_tag 'Suscribir',:class => 'submit' %>
 					<% end -%>
-				</div> <!-- suscription form ends -->
+				<!-- suscription form ends -->
 			
-				<form action='#' method='post' accept-charset='UTF-8' class='asideObject' id='contactForm'> <!-- contact form starts -->
+				<%= form_tag '/contact', :remote => true, :class=> 'asideObject',:id => 'contactForm' do -%>
 					<h5>Dejate enamorar <br /><span>y escribime</span></h5>
 					<div class='field'>
-						<label for='nameInput'>Nombre:</label>
-						<input class='text required' type='text' id='nameInput' name='nameInput' placeholder='Nombre' />
+						<label for='nombre'>Nombre:</label>
+						<%= text_field_tag 'nombre', nil,:class => 'text required' %>
 					</div>
 					<div class='field'>
-						<label for='mailInput'>Correo electr&oacute;nico:</label>
-						<input class='text required' type='text' id='mailInput' name='mailInput' placeholder='correo@ejemplo.com' />
+						<label for='email'>Correo electr&oacute;nico:</label>
+						<%= text_field_tag 'email', nil,:placeholder => 'correo@ejemplo.com', :class => 'text required' %>
 					</div>
 					<div class='field'>
-						<label for='subjectInput'>Asunto:</label>
-						<input class='text required' type='text' id='subjectInput' name='subjectInput' placeholder='Asunto' />
+						<label for='asunto'>Asunto:</label>
+						<%= text_field_tag 'asunto', nil,:class => 'text required' %>
 					</div>
 					<div class='field'>
-						<label for='descInput'>Descripci&oacute;n:</label>
-						<textarea class='text required' type='textarea' id='descInput' name='descInput' ></textarea>
+						<label for='descripcion'>Descripci&oacute;n:</label>
+						<%= text_field_tag 'descripcion', nil,:class => 'text required' %>
 					</div>
-					<input class='submit' type='submit' id='contactSubmit' name='contactSubmit' value='enviar' />
-				</form> <!-- contact form ends -->
+					<%= submit_tag 'Enviar',:class => 'submit' %>
+					<div class="requiredMsg"><span>Deb&eacute;s llenar el forumario correctamente</span></div>
+				<% end -%> <!-- contact form ends -->
 			</div>
 		</div>
-	</aside>
+	</div>
 
-	<footer id='footerWrapper'>
+	<div id='footer'>
 		<div id='footerContainer'>
-			<ul>
-				<li><a class='aboutLink' href='#aboutUs'>Sobre m&iacute;</a></li>
-				<li><a class='ritterLink' href='#ritterProducts'>Ritter Sport</a></li>
-				<li><a class='eventsLink' href='#events'>Ferias</a></li>
-				<li><a class='giftLink' href='#corpGift'>Regalos</a></li>
-				<li><a class='otherProductsLink' href='#otherProducts'>Ritter Sport</a></li>
-			</ul>
+			<div class='bottomNav'>
+				<a class='boxShadow navLink aboutLink' href='#aboutUs'>
+					<span>
+						<%= image_tag 'nav_icons_aboutUs.png',:alt => 'Acerca de m&iacute;',:title => 'Acerca de m&iacute;' %>
+					</span><!--section: Sobre m&iacute;-->
+				</a>
+				<a class='boxShadow navLink ritterLink' href='#products'>
+					<span>
+						<%= image_tag 'nav_icons_products.png',:alt => 'Mis productos',:title => 'Mis productos' %>
+					</span><!--section: Productos-->
+				</a>
+				<a class='boxShadow navLink eventsLink' href='#events'>
+					<span>
+						<%= image_tag 'nav_icons_events.png',:alt => 'Ferias',:title => 'Ferias' %>
+					</span><!--section: Ferias-->
+				</a>
+				<a class='boxShadow navLink giftLink' href='#corpGift'>
+					<span>
+						<%= image_tag 'nav_icons_corpGift.png',:alt => 'Regalos Corporativos',:title => 'Regalos Corporativos' %>
+					</span><!--section: Regalos-->
+				</a>
+			</div>
+			<div class="copyright">2012 &copy; Flor de Ajedrez | Dise&ntilde;o y desarrollo por Daniel &amp; Norman</div>
 		</div>
-	</footer>	
+	</div>	
 </div> <!-- wrapper ends -->
