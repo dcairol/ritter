@@ -1,0 +1,5 @@
+<% (1..limit).each do |index| %>
+  <li class='imageThumb'>
+    <a href='/images/<%= folder %>/<%= index %>.JPG' rel='prettyPhoto[gallery<%= folder %>]'><img src='/images/<%= folder %>/<%= index %>.JPG' width='75' height='75' /></a>
+  </li>
+<% end %>

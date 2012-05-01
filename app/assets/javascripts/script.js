@@ -1,57 +1,24 @@
 /*
 Flor de Ajedrez Theme 1.0
 Back-end: Daniel Cairol - dcairol@gmail.com
-Front-end: Norman Ramirez - nramirezcr@gmail.com
+Front-end: Norman Ramírez - nramirezcr@gmail.com
 2012
 */
 
-jQuery(function($){
+(function($){
 	// If document is ready, load functions
 	$(document).ready(function(){
 		formBehavior();
 		windowBehavior();
 		asideBehavior();
+		galleryBehavior();
+	//	scrollBehavior();
 	});
-	/*
-	$(window).scroll(function(){
-		var positionY = $(window).scrollTop();
-		var sections = document.getElementsByTagName('section');
-		$('section').each(function(){
-			var section = $(this);
-			var sectionTop = section.offset().top;
-			var sectionBottom = sectionTop+sectionHght;
-			if (positionY > sectionTop && positionY <= sectionBottom) {
-				section.find('.mainPict').animate({
-					'marginRight':'0',
-					'opacity':'1'
-				}, 1000, 'swing');
-				$(this).dequeue();
-			}
-		});
-		
-		
-		
-		
-	//	if(positionY <= )
-		
-	//	var sectionTop = $(sections[i]).offset().top;
-	/*	var sectionBottom = sectionTop+sectionHght;
-		alert('top: ' + sectionTop + ' || bottom:' + sectionBottom);
-		if (positionY > sectionTop && positionY <= sectionBottom) {
-			$('#wrapper').append('<span>Cool</span>');
-			sections[i].find('.mainPict').delay(500).animate({
-				'marginRight':'0',
-				'opacity':'1'
-			}, 1000, 'swing');
-			$(this).dequeue();
-		}
-	});
-	*/
 	
 	// Window Behavior Function
 	function windowBehavior(){
 		var windowScroll = $('body, html');
-		$('#header').delegate('.navLink', 'click', function(e){
+		$('.navLink').click(function(e){
 			e.preventDefault();
 			var linkToGo = $(this).attr('href');
 			var topPos = $(linkToGo).offset();
@@ -59,14 +26,46 @@ jQuery(function($){
 				scrollTop: topPos.top
 			}, 2000, 'swing');
 		});
-		
-		/*.queue(function(){
-				$(linkToGo).find('.mainPict').delay(500).animate({
-					'marginRight':'0',
+	}
+	
+	// Scroll Behavior Function
+	function scrollBehavior(){
+		var containerHeight = ($('#wrapper .container:first').height())-50;
+		var containers = ['#aboutUs', '#products','#events','#corpGift'];
+		var aboutUsPos = $(containers[0]).position().top + containerHeight;
+		var productsPos = $(containers[1]).position().top + containerHeight;
+		var eventsPos = $(containers[2]).position().top + containerHeight;
+		var corpGiftPos = $(containers[3]).position().top + containerHeight;
+		$(window).scroll(function(){
+			var windowPos = $('#header').position();
+			if (windowPos.top <= aboutUsPos && !($('.navLink[href='+containers[0]+']').hasClass('active'))){
+				$('.navLink').removeClass("active");
+				$('.navLink[href='+containers[0]+']').addClass("active");
+			}
+			if (windowPos.top > aboutUsPos && windowPos.top <= productsPos && !($(containers[1]).hasClass('active'))){
+				$('.navLink').removeClass("active");
+				$('.navLink[href='+containers[1]+']').addClass("active");
+			}
+			if (windowPos.top > productsPos && windowPos.top <= eventsPos && !($(containers[2]).hasClass('active'))){
+				$('.navLink').removeClass("active");
+				$('.navLink[href='+containers[2]+']').addClass("active");
+			}
+			if (windowPos.top > eventsPos && windowPos.top <= corpGiftPos && !($(containers[3]).hasClass('active'))){
+				$('.navLink').removeClass("active");
+				$('.navLink[href='+containers[3]+']').addClass("active");
+			}
+			
+			function containerFade(element){
+				$('.container').not(element).animate({
+					'opacity':'0.25'
+				});
+				element.animate({
 					'opacity':'1'
-				}, 1000, 'swing');
-				$(this).dequeue();
-			})*/
+				});
+			}
+		});
+		
+		
 	}
 	
 	// Aside Behavior Function
@@ -108,7 +107,7 @@ jQuery(function($){
 					$('article, hgroup').animate({
 						'opacity':'0.125'
 					}, 100, 'swing');
-					$('#mainContainer, #footerWrapper').animate({
+					$('#mainContainer, #footer').animate({
 						'margin-right': (asideSize - 1.5) + 'em'
 					}, 750, 'swing');
 					aside.addClass('active').animate({
@@ -121,12 +120,11 @@ jQuery(function($){
 					// else, if aside is active
 					$('.icon').removeClass('active');
 					icon.addClass('active');
-					$('form').not(formId).removeClass('active').slideUp(500, function(){
+					$('.asideObject').not(formId).removeClass('active').slideUp(500, function(){
 						$(this).removeAttr('style');
 					});
 					formContainer.addClass('active').slideDown(500);
 				}
-				return false;
 			});
 		});
 		
@@ -142,7 +140,7 @@ jQuery(function($){
 				}, 100, 'swing', function(){
 					$(this).removeAttr('style');
 				});
-				$('form').removeClass('active').clearQueue().slideUp(250, function(){
+				$('.asideObject').removeClass('active').clearQueue().slideUp(250, function(){
 					$(this).removeAttr('style');
 				});
 				$('.icon').removeClass('active').find('.toolTip').clearQueue().hide(function(){
@@ -151,7 +149,7 @@ jQuery(function($){
 				$('.closeAside').clearQueue().slideUp(250, function(){
 					$(this).removeAttr('style');
 				});
-				$('#mainContainer, #footerWrapper').clearQueue().animate({
+				$('#mainContainer, #footer').clearQueue().animate({
 					'margin-right': (asideSize - 1.5) + 'em'
 				}, 250, 'linear', function(){
 					$(this).removeAttr('style');
@@ -166,26 +164,82 @@ jQuery(function($){
 		}
 		
 		// if window is on scroll or .closeAside, #mainContainer, header, footer is on click, run closeAside()
-		$(window).delegate('.closeAside, #mainContainer, header, footer', 'click', closeAside).scroll(closeAside);
+		$(window).delegate('.closeAside', 'click', closeAside);
+	}
+
+	function galleryBehavior(){
+		$('.imgGallery').each(function(){
+			var h5Title = $(this).find('.thumbTitle');
+			var h5TitleText = $(this).find('.thumbTitle').text();
+			h5Title.click(function(){
+				$(this)
+					.next('.gallery')
+						.slideToggle('slow')
+					.end()
+					.toggleClass('active');
+			});
+		});
 	}
 	
 	// This is a temporal behavior, please change to make validation
 	function formBehavior(){
 		$('form').each(function(){
-			$(this).submit(function(){
+			var thisForm = $(this);
+			thisForm.submit(function(){
 				var required = $(this).find('.required');
 				required.each(function(){
 					if ($(this).val() == ''){
-						$(this).effect('shake', {
-							direction: 'right',
-							times: 2,
-							distance: 5
-						}, 100).addClass('uncorrect');
+						$(this).addClass('uncorrect');
+						thisForm.find('.requiredMsg').slideDown();
 					} else {
 						$(this).removeClass('uncorrect');
+						thisForm.find('.requiredMsg').slideUp();
 					}
 				});
+				return false;
 			});
 		});
 	}
-});
+	
+	// XML Load Content
+	function loadContentXML(){
+		$.ajax({
+			type: 'GET',
+			url: 'fdaContent.xml',
+			dataType: 'xml',
+			async: false,
+			success: function(xml){
+				$(xml).find('section').each(function(){
+					var sectionId = $(this).attr('id');
+					var mainTitle = $(this).find('mainTitle').text();
+					var subTitle = $(this).find('subTitle').text();
+					var description = $(this).find('description').text();
+					
+					// Create a filter for the ID's
+					$.expr[':'].id = function(elem){
+						return $(elem).attr('id') === sectionId;
+					}
+
+					if(mainTitle){
+						// Run the filter
+						$(':id')
+							.find('.hero')
+								.find('h2')
+									.text(mainTitle)
+					}
+
+					if(subTitle && description){
+						// Run the filter
+						$(':id')
+							.find('.descContainer')
+								.find('h4')
+									.text(subTitle)
+								.end()
+								.find('p')
+									.text(description);
+					}
+				});
+			}
+		});
+	}
+})(jQuery);
