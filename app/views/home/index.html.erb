@@ -51,7 +51,7 @@
 					<div class='sectionDesc'>
 						<div class='descContainer'>
 							<h4>Irresistibles</h4>
-							<p>Sencillamente, la octava maravilla. Distribuimos chocolates Ritter en distintos tama&ntilde;os, sabores y formatos, y otras marcas de renombre como Rossini. <br /><br />
+							<p>Sencillamente, la octava maravilla. Distribuimos chocolates Ritter Sport en distintos tama&ntilde;os, sabores y formatos, y otras marcas de renombre como Rossini. <br /><br />
 							</p>
 							
 				  		<% unless @categorias.empty? %>
@@ -194,7 +194,7 @@
 					</div>
 					<div class='field'>
 						<label for='descripcion'>Descripci&oacute;n:</label>
-						<%= text_field_tag 'descripcion', nil,:class => 'text required' %>
+						<%= text_area_tag 'descripcion', nil,:class => 'text required' %>
 					</div>
 					<%= submit_tag 'Enviar',:class => 'submit' %>
 					<div class="requiredMsg"><span>Deb&eacute;s llenar el forumario correctamente</span></div>

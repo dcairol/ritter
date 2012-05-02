@@ -196,7 +196,6 @@ Front-end: Norman Ramírez - nramirezcr@gmail.com
 						thisForm.find('.requiredMsg').slideUp();
 					}
 				});
-				return false;
 			});
 		});
 	}
