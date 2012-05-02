@@ -1,0 +1,14 @@
+development:
+  bucket: flor_dev
+  access_key_id: AKIAIHLGCBQ2NZINENDA
+  secret_access_key: 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
+  
+test:
+  bucket: flor_dev
+  access_key_id: AKIAIHLGCBQ2NZINENDA
+  secret_access_key: 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
+
+production:
+  bucket: flordeajedrez
+  access_key_id: AKIAIHLGCBQ2NZINENDA
+  secret_access_key: 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

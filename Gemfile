@@ -36,3 +36,5 @@ end
 gem 'mysql'
 gem 'paperclip', '~> 2.0'
 gem 'devise'
+gem 'aws-s3'
+gem 'aws-sdk', '~> 1.3.4'
