@@ -26,6 +26,6 @@ test:
 
 production:
   adapter: mysql
-  database: ritter_prod
+  database: ritter
   username: root
   password: chiqui2009
