@@ -31,11 +31,6 @@ group :test do
   gem 'turn', '0.8.2', :require => false
 end
 
-group :development do
-  # Deploy with Capistrano
-  gem 'capistrano'
-end
-
 gem 'mysql'
 gem 'paperclip', '~> 2.0'
 gem 'devise'
