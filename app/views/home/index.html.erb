@@ -1,32 +1,37 @@
+<div id="logoFixed"></div>
 <div id='wrapper'> <!-- wrapper starts -->
 	<div id='headerWrapper'>
 		<div id='header' class='fixed'>
-			<a class='boxShadow navLink aboutLink' href='#aboutUs'>
+			<a class='boxShadow navLink aboutUsLink' href='#aboutUs'>
 				<span>
-					<%= image_tag 'nav_icons_aboutUs.png',:alt => 'Acerca de m&iacute;',:title => 'Acerca de m&iacute;' %>
+					<img src='images/nav_icons_aboutUs.png' alt='Acerca de m&iacute;' title='Acerca de m&iacute;' />
 				</span><!--section: Sobre m&iacute;-->
+				<em class="menutext">Acerca</em>
 			</a>
-			<a class='boxShadow navLink ritterLink' href='#products'>
+			<a class='boxShadow navLink productsLink' href='#products'>
 				<span>
-					<%= image_tag 'nav_icons_products.png',:alt => 'Mis productos',:title => 'Mis productos' %>
+					<img src='images/nav_icons_products.png' alt='Mis productos' title='Mis productos' />
 				</span><!--section: Productos-->
+				<em class="menutext">Productos</em>
 			</a>
 			<a class='boxShadow navLink eventsLink' href='#events'>
 				<span>
-					<%= image_tag 'nav_icons_events.png',:alt => 'Ferias',:title => 'Ferias' %>
+					<img src='images/nav_icons_events.png' alt='Ferias' title='Ferias' />
 				</span><!--section: Ferias-->
+				<em class="menutext">Ferias</em>
 			</a>
-			<a class='boxShadow navLink giftLink' href='#corpGift'>
+			<a class='boxShadow navLink corpGiftLink' href='#corpGift'>
 				<span>
-					<%= image_tag 'nav_icons_corpGift.png',:alt => 'Regalos Corporativos',:title => 'Regalos Corporativos' %>
+					<img src='images/nav_icons_corpGift.png' alt='Regalos Corporativos' title='Regalos Corporativos' />
 				</span><!--section: Regalos-->
+				<em class="menutext">Regalos</em>
 			</a>
 		</div>
 	</div>
 
 	<div id='mainContainer'> <!-- main container starts -->
 		<div id='containerWrapper'>
-			<div id="sectionsContainer">
+			<div id="sectionsContainer" class="cf">
 				<div id='aboutUs' class='container'> <!-- about us starts -->
 					<div class='sectionDesc'>
 						<div class='descContainer'>
@@ -150,10 +155,6 @@
 					<span class='toolTip'><strong>Perfil</strong></span>
 					<a href='#snBox'></a>
 				</div>
-				<div class='suscriptionIcon icon'>
-					<span class='toolTip'><strong>Suscripci&oacute;n</strong></span>
-					<a href='#suscriptionForm'></a>
-				</div>
 				<div class='contactIcon icon'>
 					<span class='toolTip'><strong>Contacto</strong></span>
 					<a href='#contactForm'></a>
@@ -167,16 +168,6 @@
 						<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FChocolates-El-placer-del-cacao-y-Flor-de-Ajedrez%2F176497239033452&amp;width=176&amp;height=440&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%231B9DED&amp;stream=false&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:176px; height:440px;" allowTransparency="true"></iframe>
 					</div>
 				</div> <!-- cart form ends -->
-
-				<!-- suscription form starts -->
-					<%= form_tag '/subscription', :remote => true, :class=> 'asideObject',:id => 'suscriptionForm' do -%>
-					<h5>Quiero estar en <br /><span>contacto con vos</span></h5>
-					<div class='field'>
-						<%= text_field_tag 'email', nil,:placeholder => 'correo@ejemplo.com', :class => 'text required' %>
-					</div>
-					<%= submit_tag 'Suscribir',:class => 'submit' %>
-					<% end -%>
-				<!-- suscription form ends -->
 			
 				<%= form_tag '/contact', :remote => true, :class=> 'asideObject',:id => 'contactForm' do -%>
 					<h5>Dejate enamorar <br /><span>y escribime</span></h5>
@@ -208,22 +199,22 @@
 			<div class='bottomNav'>
 				<a class='boxShadow navLink aboutLink' href='#aboutUs'>
 					<span>
-						<%= image_tag 'nav_icons_aboutUs.png',:alt => 'Acerca de m&iacute;',:title => 'Acerca de m&iacute;' %>
+						<%= image_tag '/images/nav_icons_aboutUs.png',:alt => 'Acerca de m&iacute;',:title => 'Acerca de m&iacute;' %>
 					</span><!--section: Sobre m&iacute;-->
 				</a>
 				<a class='boxShadow navLink ritterLink' href='#products'>
 					<span>
-						<%= image_tag 'nav_icons_products.png',:alt => 'Mis productos',:title => 'Mis productos' %>
+						<%= image_tag '/images/nav_icons_products.png',:alt => 'Mis productos',:title => 'Mis productos' %>
 					</span><!--section: Productos-->
 				</a>
 				<a class='boxShadow navLink eventsLink' href='#events'>
 					<span>
-						<%= image_tag 'nav_icons_events.png',:alt => 'Ferias',:title => 'Ferias' %>
+						<%= image_tag '/images/nav_icons_events.png',:alt => 'Ferias',:title => 'Ferias' %>
 					</span><!--section: Ferias-->
 				</a>
 				<a class='boxShadow navLink giftLink' href='#corpGift'>
 					<span>
-						<%= image_tag 'nav_icons_corpGift.png',:alt => 'Regalos Corporativos',:title => 'Regalos Corporativos' %>
+						<%= image_tag '/images/nav_icons_corpGift.png',:alt => 'Regalos Corporativos',:title => 'Regalos Corporativos' %>
 					</span><!--section: Regalos-->
 				</a>
 			</div>
