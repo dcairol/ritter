@@ -37,7 +37,7 @@
 					<div class='sectionDesc'>
 						<div class='descContainer'>
 							<h4>Bienvenidos</h4>
-							<p>Bienvenidos al sitio de Flor de Ajedrez. Somos la distribuidora n&uacute;mero uno de Ritter Sport en Costa Rica, as&iacute; como de otros productos de renombre como Rossini.</p>
+							<p>Somos Flor de Ajedrez, la distribuidora n&uacute;mero uno de Ritter Sport en Costa Rica, as&iacute; como de otros productos de renombre como Rossini.</p>
 						</div>
 					</div>
 					<div class='heroContainer'>
@@ -78,14 +78,16 @@
 					<div class='heroContainer'>
 						<div class='hero boxShadow'>
 							<div class="heroImg">
-								<div id="gallery-products" class="imgGallery">
+							  <div class='galleryWrapper'>
+							    <div id="gallery-products" class="imgGallery">
 									<h5 class='thumbTitle'>Cat&aacute;logo de productos</h5>
 									<% unless @categorias.empty? %>
 									<ul id='productos-por-categoria' class="gallery">
 									<%= render :partial => 'productos_por_categoria', :locals => {:categoria => @categorias.first} %>
 									<% end %>
 									</ul>
-								</div>
+							    </div>
+							  </div>
 							</div>
 						</div>
 					</div>
@@ -101,13 +103,15 @@
 					<div class='heroContainer'>
 						<div class='hero boxShadow'>
 							<div class="heroImg">
+							  <div class='galleryWrapper'>
 								<div id="gallery-events" class="imgGallery">
 									<h5 class='thumbTitle'>Galer&iacute;a de eventos</h5>
 									<!-- Gallery goes here -->
 									<ul class='gallery'>
-									  <%= render :partial => 'galeria', :locals => {:folder => 'eventos',:limit=>12} %>
+									  <%= render :partial => 'galeria', :locals => {:folder => 'eventos',:limit=>11} %>
 									</ul>
 								</div>
+							  </div>
 							</div>
 						</div>
 					</div>
@@ -123,6 +127,7 @@
 					<div class='heroContainer'>
 						<div class='hero boxShadow'>
 							<div class="heroImg">
+							  <div class='galleryWrapper'>
 								<div id="gallery-corpGift" class="imgGallery">
 									<h5 class='thumbTitle'>Cat&aacute;logo de regalos personalizados</h5>
 									<!-- Gallery goes here -->
@@ -130,6 +135,7 @@
 									  <%= render :partial => 'galeria', :locals => {:folder => 'regalos',:limit=>10} %>
 									</ul>
 								</div>
+						          </div>
 							</div>
 						</div>
 					</div>
