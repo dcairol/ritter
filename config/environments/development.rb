@@ -37,7 +37,7 @@ Ritter::Application.configure do
   :port                 => 587,
   :domain               => 'flordeajedrez.com',
   :user_name            => 'dcairol',
-  :password             => 'bananiochiqui13',
+  :password             => 'shhhhh',
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 

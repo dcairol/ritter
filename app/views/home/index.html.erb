@@ -1,3 +1,4 @@
+
 <div id="logoFixed"></div>
 <div id='wrapper'> <!-- wrapper starts -->
 	<div id='headerWrapper'>
@@ -22,7 +23,7 @@
 			</a>
 			<a class='boxShadow navLink corpGiftLink' href='#corpGift'>
 				<span>
-					<img src='images/nav_icons_corpGift.png' alt='Regalos Corporativos' title='Regalos Corporativos' />
+					<img src='images/nav_icons_corpGift.png' alt='Regalos Personalizados' title='Regalos Personalizados' />
 				</span><!--section: Regalos-->
 				<em class="menutext">Regalos</em>
 			</a>
@@ -36,18 +37,24 @@
 					<div class='sectionDesc'>
 						<div class='descContainer'>
 							<h4>Bienvenidos</h4>
-							<p>Mmmm...¡chocolates! De yogurt, con nueces, crema de avellanas o un poquito de nutella. Flor de Ajedrez te trae el cat&aacute;logo m&aacute;s tentador del a&ntilde;o. ¡Tan solo d&eacute;jate seducir!</p>
+							<p>Bienvenidos al sitio de Flor de Ajedrez. Somos la distribuidora n&uacute;mero uno de Ritter Sport en Costa Rica, as&iacute; como de otros productos de renombre como Rossini.</p>
 						</div>
 					</div>
 					<div class='heroContainer'>
 						<div class='hero boxShadow'>
-							<div class='sectionHeader'>
-								<div class='headersContainer'>
-									<h2>Flor de Ajedrez</h2>
-								</div>
-							</div>
 							<div class="heroImg">
 							</div>
+						</div>
+					</div>
+				</div> <!-- about us ends -->
+
+				<div id='videos' class='container'> <!-- about us starts -->
+					<div class='heroContainer videos'>
+						<div class='boxShadow'>
+					          <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/jmvNRJnIw8c" frameborder="0">
+					          </iframe>
+					          <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/sp2nmN7RTro" frameborder="0">
+					          </iframe>
 						</div>
 					</div>
 				</div> <!-- about us ends -->
@@ -55,8 +62,8 @@
 				<div id='products' class='container'> <!-- products starts -->
 					<div class='sectionDesc'>
 						<div class='descContainer'>
-							<h4>Irresistibles</h4>
-							<p>Sencillamente, la octava maravilla. Distribuimos chocolates Ritter Sport en distintos tama&ntilde;os, sabores y formatos, y otras marcas de renombre como Rossini. <br /><br />
+							<h4>Productos</h4>
+							<p>Distribuimos chocolates Ritter Sport en su mayor&iacutea de tama&ntilde;os, sabores y formatos disponibles. <br /><br />
 							</p>
 							
 				  		<% unless @categorias.empty? %>
@@ -70,11 +77,6 @@
 					</div>
 					<div class='heroContainer'>
 						<div class='hero boxShadow'>
-							<div class='sectionHeader'>
-								<div class='headersContainer'>
-									<h2>Productos</h2>
-								</div>
-							</div>
 							<div class="heroImg">
 								<div id="gallery-products" class="imgGallery">
 									<h5 class='thumbTitle'>Cat&aacute;logo de productos</h5>
@@ -92,17 +94,12 @@
 				<div id='events' class='container'> <!-- events starts -->
 					<div class='sectionDesc'>
 						<div class='descContainer'>
-							<h4>Cerca de su familia</h4>
+							<h4>Fechas especiales</h4>
 							<p>Perm&iacute;tanos acompa&ntilde;arle en su boda, celebraci&oacute;n del d&iacute;a de la madre o t&eacute; de canastilla. Nos complace amenizar fechas especiales con nuestros deliciosos chocolates.</p>
 						</div>
 					</div>
 					<div class='heroContainer'>
 						<div class='hero boxShadow'>
-							<div class='sectionHeader'>
-								<div class='headersContainer'>
-									<h2>Fechas Especiales</h2>
-								</div>
-							</div>
 							<div class="heroImg">
 								<div id="gallery-events" class="imgGallery">
 									<h5 class='thumbTitle'>Galer&iacute;a de eventos</h5>
@@ -119,20 +116,15 @@
 				<div id='corpGift' class='container'> <!-- corporative gifts starts -->
 					<div class='sectionDesc'>
 						<div class='descContainer'>
-							<h4>Cerca de su empresa</h4>
-							<p>Qu&eacute; mejor manera de recompensar el esfuerzo laboral de sus empleados que con una canastita de chocolates. Cont&aacute;ctenos si desea solicitar nuestros servicios de regalos corporativos.</p>
+							<h4>Regalos personalizados</h4>
+							<p>Cont&aacute;ctenos si desea solicitar nuestros servicios de regalos personalizados. Confeccionamos productos con envoltorios y manualidades acordes a sus necesidades.</p>
 						</div>
 					</div>
 					<div class='heroContainer'>
 						<div class='hero boxShadow'>
-							<div class='sectionHeader'>
-								<div class='headersContainer'>
-									<h2>Regalos Corporativos</h2>
-								</div>
-							</div>
 							<div class="heroImg">
 								<div id="gallery-corpGift" class="imgGallery">
-									<h5 class='thumbTitle'>Cat&aacute;logo de regalos</h5>
+									<h5 class='thumbTitle'>Cat&aacute;logo de regalos personalizados</h5>
 									<!-- Gallery goes here -->
 									<ul class='gallery'>
 									  <%= render :partial => 'galeria', :locals => {:folder => 'regalos',:limit=>10} %>
@@ -163,14 +155,14 @@
 			
 			<div id='formContainer'>
 				<div class='asideObject' id='snBox'> <!-- cart form starts -->
-					<h5>Encontrame <br /><span>en las redes sociales</span></h5>
+					<h5>Encu&eacute;ntranos <br /><span>en las redes sociales</span></h5>
 					<div id="facebookLikeBox">
 						<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FChocolates-El-placer-del-cacao-y-Flor-de-Ajedrez%2F176497239033452&amp;width=176&amp;height=440&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%231B9DED&amp;stream=false&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:176px; height:440px;" allowTransparency="true"></iframe>
 					</div>
 				</div> <!-- cart form ends -->
 			
 				<%= form_tag '/contact', :remote => true, :class=> 'asideObject',:id => 'contactForm' do -%>
-					<h5>Dejate enamorar <br /><span>y escribime</span></h5>
+					<h5>Env&iacute;anos tus <br /><span>comentarios o cotizaciones</span></h5>
 					<div class='field'>
 						<label for='nombre'>Nombre:</label>
 						<%= text_field_tag 'nombre', nil,:class => 'text required' %>
@@ -214,7 +206,7 @@
 				</a>
 				<a class='boxShadow navLink giftLink' href='#corpGift'>
 					<span>
-						<%= image_tag '/images/nav_icons_corpGift.png',:alt => 'Regalos Corporativos',:title => 'Regalos Corporativos' %>
+						<%= image_tag '/images/nav_icons_corpGift.png',:alt => 'Regalos personalizados',:title => 'Regalos personalizados' %>
 					</span><!--section: Regalos-->
 				</a>
 			</div>
