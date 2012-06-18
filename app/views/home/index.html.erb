@@ -51,7 +51,7 @@
 				<div id='videos' class='container'> <!-- about us starts -->
 					<div class='heroContainer videos'>
 						<div class='boxShadow'>
-					          <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/jmvNRJnIw8c" frameborder="0">
+					          <iframe class="youtube-player margin40" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/jmvNRJnIw8c" frameborder="0">
 					          </iframe>
 					          <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/sp2nmN7RTro" frameborder="0">
 					          </iframe>
@@ -65,9 +65,8 @@
 							<h4>Productos</h4>
 							<p>Distribuimos chocolates Ritter Sport en su mayor&iacutea de tama&ntilde;os, sabores y formatos disponibles. <br /><br />
 							</p>
-							
 				  		<% unless @categorias.empty? %>
-  			  	    		  <ul style="float:right;padding-right:20px;">
+  			  	    		  <ul class='productsCat'>
 			    	      		    <% @categorias.each do |categoria| %>
 			      	        	      <li><%= link_to categoria.nombre, productos_por_categoria_path(categoria.id), :remote => true,:style=>"text-decoration:none;" %></li>
                                       		    <% end %>
@@ -108,7 +107,7 @@
 									<h5 class='thumbTitle'>Galer&iacute;a de eventos</h5>
 									<!-- Gallery goes here -->
 									<ul class='gallery'>
-									  <%= render :partial => 'galeria', :locals => {:folder => 'eventos',:limit=>11} %>
+									  <%= render :partial => 'galeria', :locals => {:folder => 'eventos',:limit=>10} %>
 									</ul>
 								</div>
 							  </div>
@@ -220,3 +219,18 @@
 		</div>
 	</div>	
 </div> <!-- wrapper ends -->
+
+
+
+<script type ="text/javascript">
+	jQuery(document).ready(function(){
+	  jQuery("area[rel^='prettyPhoto']").prettyPhoto();
+	  jQuery(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({theme:'light_square'});
+	  jQuery(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+
+	  jQuery(".gallery a[rel^='prettyPhoto']:first").prettyPhoto({
+	    custom_markup: '<div id="map_canvas" style="width:500px;"></div>',
+	    changepicturecallback: function(){ initialize(); }
+	  });
+        });
+</script>
