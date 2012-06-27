@@ -845,7 +845,7 @@ li .cartTotal {
 	overflow: hidden;
 }
 
-	#slideShow .heroImg {
+	#slideShow img {
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -854,7 +854,7 @@ li .cartTotal {
 		display: none;
 	}
 	
-	#slideShow .heroImg.active {
+	#slideShow .active{
 		display: block;
 	}
 	
@@ -866,6 +866,10 @@ li .cartTotal {
 
 	#slideShow  .last-active {
 		z-index:9;
+	}
+	#slideShow img{
+	  width:630px;
+	  height:536px;
 	}
 
 	.hero {
@@ -1031,8 +1035,14 @@ li .cartTotal {
 	#aboutUs h2	{
 		color: #000391;
 	}
-	#aboutUs .heroImg {
-		background-image: url('../images/section_aboutUs.jpg');
+	#aboutUs #slide1 {
+		background-image: url('../images/slide1.jpg');
+	}
+	#aboutUs #slide2 {
+		background-image: url('../images/slide2.jpg');
+	}
+	#aboutUs #slide3 {
+		background-image: url('../images/slide3.jpg');
 	}
 	#aboutUs .sectionDesc {
 		background-color: #000283;
@@ -1331,3 +1341,7 @@ li .cartTotal {
 
 .heroContainer.videos{height:auto;}
 .margin15{margin-bottom:40px;}
+
+.closeAside.asideButton{
+   background-position: -4px -3px;
+}

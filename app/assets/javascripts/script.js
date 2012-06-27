@@ -10,6 +10,7 @@ Front-end: Norman Ramírez - nramirezcr@gmail.com
 	$(document).ready(function(){
 		formBehavior();
 		windowBehavior();
+                loadWindowBehavior();
 		asideBehavior();
 		galleryBehavior();
 	//	scrollBehavior();
@@ -26,6 +27,31 @@ Front-end: Norman Ramírez - nramirezcr@gmail.com
 				scrollTop: topPos.top
 			}, 2000, 'swing');
 		});
+	}
+
+        // Load window behavior function
+	function loadWindowBehavior(){
+		function slideSwitch() {
+			var active = $('#slideShow img.active');
+
+			if ( active.length == 0 ) {
+				active = $('#slideShow img:last');
+			}
+
+			// use this to pull the images in the order they appear in the markup
+			var next =  active.next().length ? active.next() : $('#slideShow img:first');
+
+			active.addClass('last-active');
+
+			next.css({opacity: 0.0})
+				.addClass('active')
+				.animate({opacity: 1.0}, 1000, function() {
+					active.removeClass('active last-active');
+				});
+		}
+		var intervalTimer = setInterval(function() {
+			slideSwitch();
+		}, 6000);
 	}
 	
 	// Scroll Behavior Function
