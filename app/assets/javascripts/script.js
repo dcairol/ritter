@@ -48,8 +48,13 @@ Front-end: Norman Ramírez - nramirezcr@gmail.com
 				.animate({opacity: 1.0}, 1000, function() {
 					active.removeClass('active last-active');
 				});
+		setTimeout(
+		  function() {
+		    slideSwitch();
+		  }, 
+		  active.next().hasClass('promo') ? 11000 : 6000);
 		}
-		var intervalTimer = setInterval(function() {
+		setTimeout(function() {
 			slideSwitch();
 		}, 6000);
 	}
