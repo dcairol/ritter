@@ -112,11 +112,18 @@ Front-end: Norman Ramírez - nramirezcr@gmail.com
 		// Tooltip Function
 		$('.icon').each(function(e){
 			var currentCont = $(this);
-			var toolTipOb = currentCont.find('.toolTip');
-			currentCont.bind('mouseenter mouseleave', function(){
-				if (!$('#asideWrapper').hasClass('active')){
-					toolTipOb.toggle();
-				}
+			var toolTipObj = currentCont.find('.toolTip');
+
+			currentCont.bind('mouseenter', function(){
+			  if (!$('#asideWrapper').hasClass('active')){
+			    toolTipObj.show();
+			  }
+			});
+
+			currentCont.bind('mouseleave', function(){
+			  if (!$('#asideWrapper').hasClass('active')){
+			    toolTipObj.hide()
+			  }
 			});
 			
 			// Forms Function
